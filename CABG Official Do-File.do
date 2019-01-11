@@ -43,3 +43,14 @@ replace MDSchool_Clean="Univ Massachusetts" if MDSchool=="Univ Mass"
 
 egen tag=tag(Surgeon)
 count if tag
+
+// Encoding string variable and declaring dataset as panel for analysis
+sort Surgeon Year Hospital
+order Surgeon Year Hospital AgeSurgery
+encode(Surgeon), generate(nSurgeon) label(Surgeon)
+xtset nSurgeon
+
+gen logRAMR = asinh(RAMR)
+label variable logRAMR "inverse hyperbolic sine of RAMR (log)"
+gen logTotalRAMR = asinh(TotalRAMR)
+label variable logTotalRAMR "inverse hyperbolic sine of TotalRAMR (log)"
