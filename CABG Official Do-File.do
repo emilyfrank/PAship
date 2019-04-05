@@ -54,3 +54,5 @@ gen logRAMR = asinh(RAMR)
 label variable logRAMR "inverse hyperbolic sine of RAMR (log)"
 gen logTotalRAMR = asinh(TotalRAMR)
 label variable logTotalRAMR "inverse hyperbolic sine of TotalRAMR (log)"
+
+* append hospitals back on:
